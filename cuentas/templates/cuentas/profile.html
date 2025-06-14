@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% block title %}Perfil{% endblock %}
 {% block content %}
+{% load static %}
 <h2>Mi perfil</h2>
 <div class="row">
     <div class="col-md-4">
-        <img src="{{ profile.avatar.url }}" class="rounded-circle img-thumbnail" width="160">
+        {% if profile.avatar %}
+            <img src="{{ profile.avatar.url }}" class="rounded-circle img-thumbnail" width="160">
+        {% else %}
+            <img src="{% static 'img/default-avatar.png' %}" class="rounded-circle img-thumbnail" width="160">
+        {% endif %}
     </div>
     <div class="col-md-8">
         <ul class="list-group">
