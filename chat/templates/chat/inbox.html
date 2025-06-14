@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Bandeja de entrada{% endblock %}
+{% block content %}
+<h2>Mensajes recibidos</h2>
+<a href="{% url 'chat-send' %}" class="btn btn-primary mb-3">Nuevo mensaje</a>
+{% if messages_received %}
+    <ul class="list-group mb-4">
+    {% for msg in messages_received %}
+        <li class="list-group-item{% if not msg.is_read %} list-group-item-warning{% endif %}">
+            <a href="{% url 'chat-view' msg.pk %}">
+                <strong>{{ msg.sender.username }}</strong>: {{ msg.content|truncatewords:8 }}
+                <small class="float-end">{{ msg.sent_at|date:"d/m/Y H:i" }}</small>
+                {% if not msg.is_read %}<span class="badge bg-warning text-dark ms-2">Nuevo</span>{% endif %}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tenés mensajes recibidos.</p>
+{% endif %}
+
+<h2>Mensajes enviados</h2>
+{% if messages_sent %}
+    <ul class="list-group">
+    {% for msg in messages_sent %}
+        <li class="list-group-item">
+            <strong>Para {{ msg.recipient.username }}</strong>: {{ msg.content|truncatewords:8 }}
+            <small class="float-end">{{ msg.sent_at|date:"d/m/Y H:i" }}</small>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No enviaste mensajes.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,93 @@
+
+# PlaygroundFinal
+
+Proyecto final: **Blog de Anotaciones** + Perfiles + Chat
+
+---
+
+## Descripción
+
+Sitio web tipo blog hecho con Django, pensado para practicar y mostrar todo lo aprendido en Python y desarrollo web. Permite publicar anotaciones personales (con imagen y texto enriquecido), registrar y gestionar usuarios con perfil propio, editar avatar y bio, y chatear en privado entre usuarios registrados.
+
+## Funcionalidades
+
+- **Home:** Bienvenida y menú principal.
+- **Acerca de mí:** Presentación del desarrollador.
+- **Anotaciones:** 
+  - Listado de posts con vista previa.
+  - Modal “Leer más” para ver el post completo sin salir de la página.
+  - Crear, editar y borrar anotaciones (solo para el autor logueado).
+  - Subida de imagen, campo de texto enriquecido (CKEditor), fecha y autor.
+- **Usuarios:**
+  - Registro, login y logout.
+  - Perfil con avatar, bio y fecha de cumpleaños.
+  - Edición de perfil (datos y avatar).
+- **Chat:**
+  - Envío de mensajes privados a otros usuarios.
+  - Bandeja de entrada y salida.
+  - Opción de “Responder” que prellena el destinatario del mensaje.
+- **Panel Admin:** Gestión completa de usuarios, perfiles, anotaciones y mensajes.
+- **Estética:** Bootstrap 5, diseño limpio, responsivo y con detalles modernos.
+- **Animaciones:** En la página “Acerca de mí” (AOS.js).
+- **Mensajes de feedback:** Errores, confirmaciones y alertas con Bootstrap.
+
+---
+
+## Instalación
+
+1. **Clonar el repositorio**
+   ```sh
+   git clone https://github.com/LorenzoDiel/proyectoplayground.git
+   cd proyectoplayground
+   ```
+
+2. **Crear entorno virtual **
+   python -m venv venv
+   # Activar en Windows:
+   venv\Scripts\activate
+   # Activar en Mac/Linux:
+   source venv/bin/activate
+   ```
+
+3. **Instalar dependencias**
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+4. **Migrar la base de datos**
+   ```sh
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+5. **Crear superusuario**
+   ```sh
+   python manage.py createsuperuser
+   ```
+
+6. **Levantar el servidor**
+   ```sh
+   python manage.py runserver
+   ```
+
+7. **Entrar a la web**
+   ```
+   http://127.0.0.1:8000/
+   ```
+
+---
+
+---
+
+## Créditos
+
+Desarrollado por **Lorenzo Diel**  
+Proyecto final del curso Python en CoderHouse (2025)
+
+---
+
+## Video explicativo
+
+El video con la demostración está en la carpeta `Video Explicativo` de este mismo repo.
+
+---
